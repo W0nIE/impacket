@@ -1,4 +1,4 @@
-# impacket patches
+## impacket patches
 
 My two small fixes for [impacket](https://github.com/fortra/impacket).
 
@@ -14,7 +14,7 @@ These patches make it work again.
 
 `uncrc32.py` is also here as a separate file.
 
-## How to use
+### How to use
 
 ```bash
 git clone https://github.com/fortra/impacket
