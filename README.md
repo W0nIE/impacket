@@ -1,29 +1,16 @@
 # impacket patches
 
-My small fixes for [impacket](https://github.com/fortra/impacket).
-This repository keeps only my changes, not the full impacket source.
+My two small fixes for [impacket](https://github.com/fortra/impacket).
 
-## Contents
+- **0001** — fixes a Python 3 error in `ImpactPacket.py`.
+- **0002** — adds `uncrc32.py` (CRC32 reversing script) back to impacket.
 
-| File | What it does |
-|------|--------------|
-| `patches/0001-Fixed-a-typecast-issue-in-ImpactPacket.py.patch` | Fixes `TypeError: cannot use a str to initialize an array with typecode 'B'` in `impacket/ImpactPacket.py` (`set_bytes_from_string` now encodes the string to bytes). |
-| `patches/0002-ReAdd-a-file-uncrc32.py.patch` | Adds `examples/uncrc32.py` back to impacket. |
-| `uncrc32.py` | The CRC32 "reversing" script itself (append 4 bytes to data to get a chosen CRC32). Based on *Reversing CRC – Theory and Practice*, HU Berlin, SAR-PR-2006-05. |
+`uncrc32.py` is also here as a separate file.
 
-## How to apply
+## How to use
 
 ```bash
 git clone https://github.com/fortra/impacket
 cd impacket
 git am /path/to/patches/*.patch
-```
-
-The patches were made on top of impacket commit `3c6713e` (July 2022).
-On newer versions they may need small changes.
-
-To check first without changing anything:
-
-```bash
-git apply --check /path/to/patches/*.patch
 ```
