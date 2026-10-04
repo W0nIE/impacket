@@ -1,0 +1,27 @@
+From d42ea79e60437e7006f98b9b9ad3c6b34757c205 Mon Sep 17 00:00:00 2001
+From: none <none>
+Date: Mon, 19 Sep 2022 09:25:15 +0300
+Subject: [PATCH 1/2] Fixed a typecast issue in ImpactPacket.py: "TypeError:
+ cannot use a str to initialize an array with typecode 'B'"
+
+Signed-off-by: none <none>
+---
+ impacket/ImpactPacket.py | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/impacket/ImpactPacket.py b/impacket/ImpactPacket.py
+index a20ca15..2241c1d 100644
+--- a/impacket/ImpactPacket.py
++++ b/impacket/ImpactPacket.py
+@@ -70,7 +70,7 @@ class PacketBuffer(object):
+ 
+     def set_bytes_from_string(self, data):
+         "Sets the value of the packet buffer from the string 'data'"
+-        self.__bytes = array.array('B', data)
++        self.__bytes = array.array('B', data.encode())
+ 
+     def get_buffer_as_string(self):
+         "Returns the packet buffer as a string object"
+-- 
+2.43.0
+
